@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Koval Apps | Catholic Wallpaper</title>
+
+  <meta name="description" content="Catholic Wallpaper brings daily Catholic Bible verse wallpapers, devotional imagery, sharing, notifications, spoken verse support, and automatic wallpaper updates to Android." />
+  <meta name="author" content="Koval Apps" />
+
+  <meta property="og:title" content="Catholic Wallpaper by Koval Apps" />
+  <meta property="og:description" content="Daily Catholic Bible verse wallpapers with devotional imagery, sharing, notifications, text-to-speech, and automatic wallpaper updates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kovalapps.com" />
+
+  <style>
+    :root {
+      --bg: #0b0b10;
+      --text: #f5f5f7;
+      --muted: #b8b8c3;
+      --accent: #b57cff;
+      --accent2: #d7b7ff;
+      --border: rgba(255, 255, 255, .12);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #23153d 0%, var(--bg) 40%, #050507 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 8, 12, .78);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #6f45ff);
+      color: white;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .06);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), #7b4dff);
+      color: white;
+      border: 0;
+    }
+
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      margin: 0 0 20px;
+      letter-spacing: -2.5px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 660px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .phone-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      border-radius: 38px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      max-width: 365px;
+      margin-left: auto;
+    }
+
+    .phone-screen {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      background: #000;
+    }
+
+    .phone-image {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+    }
+
+    section {
+      padding: 74px 0;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.1;
+      margin: 0 0 16px;
+      letter-spacing: -1.2px;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 780px;
+      margin: 0 0 34px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(181,124,255,.16);
+      margin-bottom: 18px;
+      font-size: 22px;
+    }
+
+    .story {
+      background: linear-gradient(135deg, rgba(181,124,255,.12), rgba(255,255,255,.03));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .tech-pill {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 34px 0;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-card {
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="brand-mark">K</div>
+          <span>Koval Apps</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#technology">Technology</a>
+          <a href="#story">Story</a>
+          <a href="https://play.google.com/store/apps/details?id=com.kovalapps.catholicbible" target="_blank" rel="noopener">Google Play</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Now available on Google Play</div>
+
+          <h1>Catholic Wallpaper</h1>
+
+          <p>
+            Daily Catholic Bible verse wallpapers with devotional imagery,
+            automatic wallpaper updates, sharing, notifications, and spoken verse support.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="https://play.google.com/store/apps/details?id=com.kovalapps.catholicbible" target="_blank" rel="noopener">
+              Download on Google Play
+            </a>
+
+            <a class="button" href="#technology">View technology</a>
+          </div>
+        </div>
+
+        <div class="phone-card">
+          <div class="phone-screen">
+            <img
+              src="images/catholic-wallpaper-main.png"
+              alt="Catholic Wallpaper Android app showing a Catholic Bible verse wallpaper"
+              class="phone-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Faith-centered features for every day</h2>
+
+        <p class="section-lead">
+          Catholic Wallpaper was built to make Scripture more visible throughout the day
+          through meaningful artwork, automation, and simple sharing tools.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon">✝</div>
+            <h3>Daily Scripture Wallpapers</h3>
+            <p>Displays a new Catholic Bible verse paired with devotional artwork.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🖼</div>
+            <h3>Automatic Wallpaper Updates</h3>
+            <p>Automatically update Home Screen, Lock Screen, or both on your preferred schedule.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🔊</div>
+            <h3>Read Aloud Support</h3>
+            <p>Listen to Scripture through built-in text-to-speech functionality.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">↗</div>
+            <h3>Save and Share</h3>
+            <p>Save verse images locally or share customized devotional wallpapers with family and friends.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🔔</div>
+            <h3>Verse Notifications</h3>
+            <p>Receive daily Scripture notifications at your chosen time.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">⚙</div>
+            <h3>Personalized Experience</h3>
+            <p>Customize wallpaper behavior, verse delivery, and automation settings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story">
+      <div class="container">
+        <h2 class="section-title">Why I built it</h2>
+
+        <p class="section-lead">
+          I noticed many Christian wallpaper apps paired verses with generic backgrounds
+          and lacked automation, personalization, and a more meaningful user experience.
+          Catholic Wallpaper was built to connect Scripture with devotional imagery while
+          giving users tools to set, save, share, and hear the daily verse.
+        </p>
+      </div>
+    </section>
+
+    <section id="technology">
+      <div class="container">
+        <h2 class="section-title">Built with cloud and DevOps practices</h2>
+
+        <p class="section-lead">
+          This project combines Android development, serverless backend services,
+          infrastructure automation, CI/CD, and production release management.
+        </p>
+
+        <div class="tech-grid">
+          <div class="tech-pill">Kotlin</div>
+          <div class="tech-pill">Android SDK</div>
+          <div class="tech-pill">WorkManager</div>
+          <div class="tech-pill">Text-to-Speech</div>
+          <div class="tech-pill">AWS Lambda</div>
+          <div class="tech-pill">API Gateway</div>
+          <div class="tech-pill">DynamoDB</div>
+          <div class="tech-pill">Amazon S3</div>
+          <div class="tech-pill">Terraform</div>
+          <div class="tech-pill">Docker</div>
+          <div class="tech-pill">GitHub Actions</div>
+          <div class="tech-pill">CI/CD</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Download Catholic Wallpaper</h2>
+
+          <p class="section-lead">
+            Available now on Google Play for Android devices.
+          </p>
+
+          <a class="button primary" href="https://play.google.com/store/apps/details?id=com.kovalapps.catholicbible" target="_blank" rel="noopener">
+            Open in Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Koval Apps. All rights reserved.</div>
+
+      <div class="footer-links">
+        <a href="mailto:conradk20@gmail.com">Support</a>
+        <a href="https://kovalc.github.io/catholic-wallpaper-privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://kovalc.github.io/catholic-wallpaper-terms/" target="_blank" rel="noopener">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
